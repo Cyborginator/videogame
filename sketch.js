@@ -84,14 +84,14 @@ function keyPressed() {
 }
 
 function title() {
-  background(0);
+  background(0, 200, 50);
   textSize(80);
   fill(255);
   textAlign(CENTER);
-  text('My Game', w/2, h/5);
+  text('Coin Collector', w/2, h/5);
 
   textSize(30);
-  text('click anywhere to start', w/2, h/2);
+  text('Click Anywhere To Start', w/2, h/2);
 }
 
 function titleMouseClicked() {
