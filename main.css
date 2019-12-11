@@ -1,0 +1,19 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+/*
+body {
+  margin: 50px auto;
+  padding: 50px;
+  font-family: "Lucida Console", Monaco, monospace;
+  line-height: 1.5;
+  text-align: left;
+}
+
+/* sets canvas to be aligned to top right of screen
+position absolute will stop it from scrolling */
+canvas {
+  display: block;
+  margin: 100px auto;
+}
