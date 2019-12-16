@@ -16,10 +16,16 @@ let thirdTime = true;
 let fourthTime = true;
 let fifthTime = true;
 let sixthTime = true;
+var cloudImg;
+var x1 = 0;
+var x2;
+
+var scrollSpeed = 2;
 
 function preload() {
   playerImg = loadImage('assets/player/mariolevel1.png');
   coinImg = loadImage('assets/coin/coinlevel1.png')
+  cloudImg = loadImage("assets/misc/clouds.png");
 }
 
 function setup() {
@@ -31,6 +37,8 @@ function setup() {
 
   //coins[0] = new Coin();
   coins.push(new Coin());
+
+  x2 = width;
 }
 
 function draw() {
@@ -91,7 +99,8 @@ function title() {
   text('Coin Collector', w/2, h/5);
 
   textSize(30);
-  text('Click Anywhere To Start', w/2, h/2);
+  text('Chasing Nostalgia', w/2, h/3);
+  text('Click Anywhere To Start', w/2, 4*h/5);
 }
 
 function titleMouseClicked() {
@@ -100,8 +109,20 @@ function titleMouseClicked() {
 }
 
 function level1() {
-  background(50, 150, 200);
+  //background(50, 150, 200);
   // text('click for points', w/2, h - 30);
+  image(cloudImg, x1, 0, width, height);
+  image(cloudImg, x2, 0, width, height);
+
+  x1 -= scrollSpeed;
+  x2 -= scrollSpeed;
+
+  if (x1 < -width){
+    x1 = width;
+  }
+  if (x2 < -width){
+    x2 = width;
+  }
 
   if(random(1) <= 0.01) {
     coins.push(new Coin());
@@ -223,4 +244,12 @@ function youWin() {
 function youWinMouseClicked() {
   state = 'level 1';
   points = 0;
+  playerImg = loadImage('assets/player/mariolevel1.png');
+  coinImg = loadImage('assets/coin/coinlevel1.png')
+  firstTime = true;
+  secondTime = true;
+  thirdTime = true;
+  fourthTime = true;
+  fifthTime = true;
+  sixthTime = true;
 }
